@@ -1,4 +1,4 @@
-"" GENERAL
+" GENERAL
 
 " Set map leader
 let mapleader= "\<Space>"
@@ -20,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tweekmonster/startuptime.vim'
 
 " Plugin YCM to autocomplete
+Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 
 
@@ -87,6 +88,8 @@ Plugin 'rakr/vim-one'
 Plugin 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
+nmap <Leader>s <Plug>(easymotion-overwin-f)
+
 " `s{char}{label}`
 nmap s <Plug>(easymotion-overwin-f2)
 
@@ -125,7 +128,16 @@ call vundle#end()            " required
 filetype indent plugin on
 syntax on
 
-
 "" TMUX SUPPORT with special first char : c-v then esc to do it
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Right>"
+let g:UltiSnipsJumpBackwardTrigger = "<Left>"

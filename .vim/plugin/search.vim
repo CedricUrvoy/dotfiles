@@ -6,7 +6,10 @@
  nmap ; :Buffers<CR>
  nmap <Leader>y :Tags<CR>
  nnoremap <c-p> :Files<CR>
- nnoremap <leader>a :Rg
+ nnoremap <leader>a :Rg 
+ nnoremap <c-g> :Rg! 
+
+let g:fzf_layout = { 'down': '~100%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -29,11 +32,15 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 set grepprg=rg\ --vimgrep
+
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --fixed-strings --follow  --color=always --ignore-case --glob "!.git/*" '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
+     \   'rg --column --line-number --no-heading --fixed-strings --follow  --color=always --ignore-case --glob "!.git/*" '.shellescape(<q-args>), 1,
+     \   <bang>0 ? fzf#vim#with_preview('up:60%')
+     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+     \   <bang>0)
 

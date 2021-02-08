@@ -7,7 +7,7 @@ export ZSH=/Users/cedricurvoy/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-export ZSH_THEME="agnoster"
+export ZSH_THEME="spaceship"
 
 DEFAULT_USER=$USER
 # or
@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 
 #aliases for mac
 # for this one, it's needed to install macvim before
-alias vim='/usr/local/Cellar/macvim/8.1-154/MacVim.app/Contents/MacOS/Vim'
+#alias vim='/usr/local/Cellar/macvim/8.1-154/MacVim.app/Contents/MacOS/Vim'
 # alias to run tmux with color
 #alias tmux="TERM=screen-256color-bce tmux"
 # git aliases
